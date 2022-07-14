@@ -32,7 +32,33 @@ The application can be run with:
 `python3 manage.py runserver`
 Without any pages or routes, a basic Django landing page will render, confirming that Django is installed and working properly
 
+Create the first app, called todo:
+`python3 manage.py startapp todo`
+This creates another directory
 
+
+If the terminal displays warnings about Unapplied Migrations:
+
+`python3 manage.pt showmigrations` to see what migrations need to be made
+Then:
+`python3 manage.py migrate` to run the migrations
+The `--plan` flag can be used here to see the steps that will be executed. This won't actually run the migrate command, it will just display what it will do
+
+A superuser must be created in order to login and look at the database:
+`python3 manage.py createsuperuser`
+A name must be supplied, but an email is not necessary. A password must be supplied twice
+
+
+Once a model has been created, or when models are changed:
+`python3 manage.py makemigrations`
+This creates a Python file in the migrations folder that holds the model template
+
+The run the migrate command to create or update a database table
+
+In this way, makemigrations and migrate act like git add., git commit -m, and git push
+
+The dry-run flag can be applied to see what this command would do without actually doing it:
+`python3 manage.py makemigrations --dry-run`
 
 
 

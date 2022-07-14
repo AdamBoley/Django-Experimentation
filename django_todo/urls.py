@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from todo.views import get_todo_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', get_todo_list, name='get_todo_list')
 ]
+
+# the hello path calls the say_hello function in todo/views.py
+# when running the server, /hello must be appended to the url in the url bar
+# this will render a simple html page with the text 'hello'
