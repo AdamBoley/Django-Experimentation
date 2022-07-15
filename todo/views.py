@@ -29,7 +29,6 @@ def add_item(request):
         # the commented out lines refer to a previous build which processed a form we created ourselves
         # since we are now using a standard pre-built Django form, we need to use the above syntax
         # the is_valid method checks to see if the submitted form is valid per the blank and null statements in the models.py file
-            
 
     form = ItemForm()
     context = {

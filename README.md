@@ -64,5 +64,35 @@ The dry-run flag can be applied to see what this command would do without actual
 
 
 
+## Tests
+
+Run tests in todo / tests.py:
+`python3 manage.py test`
+
+Run a specific test file:
+`python3 manage.py test todo.<test-file-name>`
+i.e.
+`python3 manage.py test todo.test_forms`
+
+### Coverage
+Install the Coverage tool:
+`pip3 install coverage`
+
+Run Coverage:
+`coverage run --source=todo manage.py test`
+This creates a .coverage file in the repository
+
+View the coverage report:
+`coverage report`
+
+Place coverage report into an interactive HTML file:
+`coverage html`
+Creates a folder called htmlcov that holds reports
+
+Run non-Django web-server:
+`python3 -m http.server`
+This requires that a Django server not be running
+
+
 
 
