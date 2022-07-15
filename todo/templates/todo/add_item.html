@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Add a To Do item
+    </h1>
+    <form action="add" method="POST">
+        {% csrf_token %}
+        <!--csrf_token means 'cross-site request forgery token' 
+        and is added to the submitted form object to guarantee that submissions are coming from this app, and not somewhere else-->
+        <!--<div>
+            <p>
+                <label for="id_name">Name</label>
+                <input type="text" name="item_name" id="id_name">
+            </p>
+        </div>
+        <div>
+            <p>
+                <input type="checkbox" name="done" id="id_done">
+                <label for="id_done">Done</label>
+            </p>
+        </div>-->
+        {{ form.as_p }}
+        <!--form is not a database table, but is a standard Django form, defined in forms.py and in the add_item function in views.py-->
+        <!--The as_p method renders the form's inputs inside individual p elements-->
+        <div>
+            <p>
+                <button type="submit">Add Item</button>
+            </p>
+        </div>
+    </form>
+</body>
+</html>
