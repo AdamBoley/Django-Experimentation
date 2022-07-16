@@ -199,6 +199,15 @@ This re-enables the use of a local database
 
 Then on personal Gitpod account, add an evironment variable of DEVELOPMENT : True
 
+In settings.py, chaneg ALLOWED_HOSTS to:
+if development:
+    ALLOWED_HOSTS = ['localhost']
+else:
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+
+This re-enables local deployment
+
+
 
 
 

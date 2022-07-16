@@ -30,8 +30,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-l&=!(*uxkx+xki67h3r2$
 DEBUG = development
 
 # ALLOWED_HOSTS = ['adam-django-todo-app.herokuapp.com']
-
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+if development:
+    ALLOWED_HOSTS = ['localhost']
+else:
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
