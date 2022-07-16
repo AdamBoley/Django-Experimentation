@@ -207,6 +207,14 @@ else:
 
 This re-enables local deployment
 
+### Security
+
+When the SECRET_KEY was defined, it was saved forever on Github in previous builds
+This makes the app unsecure
+
+Firstly, delete the secret key in settinsg.py
+Then generate a new one using a Django Secret Key generator
+Add this to Gitpod environment variables
 
 
 
