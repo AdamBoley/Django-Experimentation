@@ -95,4 +95,48 @@ This requires that a Django server not be running
 
 
 
+## Deployment
+
+Login to heroku:
+`heroku login -i`
+Supply password and email
+
+Install psycopg2 to handle database deployment:
+`pip3 install psycopg2-binary`
+
+Install gunicorn:
+`pip3 install gunicorn`
+Gunicorn acts as a web server
+
+Create requirements.txt file:
+`pip3 freeze --local > requirements.txt`
+
+Create heroku app using terminal:
+`heroku apps:create adam-django-todo-app`
+
+Check that the workspace has been linked to the Heroku app:
+`git remote -v`
+
+Create Heroku Postgres database (resources page)
+
+Check that Heroku has added the postgres database:
+`heroku addons`
+
+Install dj_database_url:
+`pip3 install dj_database_url`
+
+Freeze requirements again
+
+Get database url:
+`heroku config`
+
+In settings.py, import dj_database_url at top
+Then replace the value of the default key in the DATABASES dictionary with the DATABASE_URL retrieved from `heroku config`
+
+Migrate local SQLite3 database to remote Heroku Postgres database:
+`python3 manage.py migrate`
+
+add '*.sqlite3' to .gitignore, so that the database is not pushed to Github
+
+The add, commit, push 
 
