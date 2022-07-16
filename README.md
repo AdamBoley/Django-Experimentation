@@ -154,6 +154,14 @@ Create Procfile, add:
 `web: gunicorn django_todo.wsgi:application`
 This tells Heroku that our app is a web app that requires a web-server, and hence allow it to handle HTTP requests
 
+Push to Heroku (again)
+
+This Django will throw an error about ALLOWED_HOSTS
+
+Add URL of the deployed Heroku app to the ALLOWED_HOSTS array in settings.py, removing the prepended http://
+
+
+
 
 
 
