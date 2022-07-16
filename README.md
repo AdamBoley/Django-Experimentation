@@ -216,6 +216,10 @@ Firstly, delete the secret key in settinsg.py
 Then generate a new one using a Django Secret Key generator
 Add this to Gitpod environment variables
 
+Generate a second new secret key, and add to Heroku Config Vars
+
+
+
 
 
 
