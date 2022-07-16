@@ -180,7 +180,24 @@ DATABASES = {
 Add these to CONFIG_VARS
 HEROKU_HOSTNAME : deployed app URL
 
+In settings.py, change value of DEBUG to development
 
+The change DATABASES to use an if / else:
+if development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+
+This re-enables the use of a local database
+
+Then on personal Gitpod account, add an evironment variable of DEVELOPMENT : True
 
 
 
