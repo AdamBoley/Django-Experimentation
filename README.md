@@ -140,3 +140,10 @@ add '*.sqlite3' to .gitignore, so that the database is not pushed to Github
 
 The add, commit, push 
 
+Push to Heroku:
+`git push origin main`
+
+This will likely fail, since this application contains no static CSS or JS files
+
+Fix with:
+`heroku config:set DISABLE_COLLECTSTATIC=1`
