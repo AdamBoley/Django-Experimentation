@@ -147,3 +147,14 @@ This will likely fail, since this application contains no static CSS or JS files
 
 Fix with:
 `heroku config:set DISABLE_COLLECTSTATIC=1`
+
+Push again, will likely fail with error code H14
+
+Create Procfile, add:
+`web: gunicorn django_todo.wsgi:application`
+This tells Heroku that our app is a web app that requires a web-server, and hence allow it to handle HTTP requests
+
+
+
+
+
