@@ -158,7 +158,28 @@ Push to Heroku (again)
 
 This Django will throw an error about ALLOWED_HOSTS
 
-Add URL of the deployed Heroku app to the ALLOWED_HOSTS array in settings.py, removing the prepended http://
+Add URL of the deployed Heroku app to the ALLOWED_HOSTS array in settings.py, removing the prepended http:// and appended /
+
+HOLY FUCKING SHIT IT WORKS
+
+Clean up:
+
+In settings.py, import os at the top of the file
+
+Change the value of SECRET_KEY to:
+os.environ.get('SECRET_KEY', [secret key here])
+
+Change the value of ALLOWED_HOSTS to:
+[os.environ.get('HEROKU_HOSTNAME')]
+
+Change the value of DATABASES to:
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+
+Add these to CONFIG_VARS
+HEROKU_HOSTNAME : deployed app URL
+
 
 
 
